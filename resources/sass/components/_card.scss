@@ -1,0 +1,12 @@
+.card {
+    &-title {
+
+        a {
+            color: #777;
+
+            &:hover {
+                color: #212529
+            }
+        }
+    }
+}
