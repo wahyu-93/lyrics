@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Genre;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('band.partials.form', function ($view) {
+            $view->with('genres', Genre::latest()->get());
+        });
     }
 }

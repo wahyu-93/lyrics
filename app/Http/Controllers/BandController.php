@@ -23,9 +23,9 @@ class BandController extends Controller
 
     public function create()
     {
-        $genres = Genre::latest()->get();
+        // $genres = Genre::latest()->get();
         $bands = Band::latest()->paginate(12);
-        return view('band.create', compact('genres', 'bands'));
+        return view('band.create', compact('bands'));
     }
 
     public function store(Request $request)
@@ -36,7 +36,6 @@ class BandController extends Controller
             'genre' => 'required'
         ]);
 
-        $slug = Str::slug($request->name) . Str::random(10);
         $image = $request->file('poster')->store('band_poster');
 
         $band = Band::create([
@@ -55,8 +54,8 @@ class BandController extends Controller
 
     public function edit(Band $band)
     {
-        $genres = Genre::latest()->get();
-        return view('band.edit', compact('band', 'genres'));
+        // $genres = Genre::latest()->get();
+        return view('band.edit', compact('band'));
     }
 
     public function update(Band $band, Request $request)
@@ -69,7 +68,7 @@ class BandController extends Controller
         };
 
         $band->update([
-            'name'  => Request('name'),
+            'name'  => $request->name,
             'poster' => $poster
         ]);
 
