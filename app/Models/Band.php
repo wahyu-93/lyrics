@@ -16,4 +16,9 @@ class Band extends Model
     {
         return $this->belongsToMany(Genre::class, 'band_genre');
     }
+
+    public function albums()
+    {
+        return $this->hasMany(Album::class);
+    }
 }

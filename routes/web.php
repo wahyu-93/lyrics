@@ -45,4 +45,5 @@ Route::group(['prefix' => 'band'], function () {
 Route::group(['prefix' => 'album'], function () {
     Route::get('create', [AlbumController::class, 'create'])->name('album.create');
     Route::post('create', [AlbumController::class, 'store'])->name('album.store');
+    Route::put('/{album}/update', [AlbumController::class, 'update'])->name('album.update');
 });
