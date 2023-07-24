@@ -12,10 +12,14 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          @include('album.partials.form',[
-              'submit'  => 'Update',
-              'type' => 'btn-success'
-          ])
+          <form action="{{ route('album.update', $album) }}" method="post" autocomplete="off">
+            @csrf
+            @method('PUT')
+            @include('album.partials.form',[
+                'submit'  => 'Update',
+                'type' => 'btn-success'
+            ])
+          </form>
         </div>
       </div>
     </div>

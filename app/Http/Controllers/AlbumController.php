@@ -33,4 +33,20 @@ class AlbumController extends Controller
         session()->flash('success', 'Album Has Been Create');
         return back();
     }
+
+    public function update(Request $request, Album $album)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'band' => 'required'
+        ]);
+
+        $album->update([
+            'name'  => $request->name,
+            'band_id'   => $request->band
+        ]);
+
+        session()->flash('success', 'Album Has Been Update');
+        return back();
+    }
 }
