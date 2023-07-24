@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\BandController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GenreController;
@@ -39,4 +40,9 @@ Route::group(['prefix' => 'band'], function () {
     Route::get('/{band}', [BandController::class, 'show'])->name('band.show');
     Route::get('/{band}/edit', [BandController::class, 'edit'])->name('band.edit');
     Route::put('/{band}/edit', [BandController::class, 'update'])->name('band.update');
+});
+
+Route::group(['prefix' => 'album'], function () {
+    Route::get('create', [AlbumController::class, 'create'])->name('album.create');
+    Route::post('create', [AlbumController::class, 'store'])->name('album.store');
 });
