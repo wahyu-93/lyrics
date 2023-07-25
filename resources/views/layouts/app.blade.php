@@ -44,6 +44,9 @@
             multiple: true,
             tags: true,
         })
+
+        $('#select-band').select2()
+        $('#select-album').select2()
     })
     </script>
 
