@@ -4,6 +4,7 @@ use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\BandController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GenreController;
+use App\Http\Controllers\SongController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -46,4 +47,9 @@ Route::group(['prefix' => 'album'], function () {
     Route::get('create', [AlbumController::class, 'create'])->name('album.create');
     Route::post('create', [AlbumController::class, 'store'])->name('album.store');
     Route::put('/{album}/update', [AlbumController::class, 'update'])->name('album.update');
+});
+
+Route::group(['prefix' => 'song'], function () {
+    Route::get('create', [SongController::class, 'create'])->name('song.create');
+    Route::post('create', [SongController::class, 'store'])->name('song.store');
 });

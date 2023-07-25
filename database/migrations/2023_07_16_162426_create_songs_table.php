@@ -16,12 +16,14 @@ class CreateSongsTable extends Migration
         Schema::create('songs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('band_id');
+            $table->unsignedBigInteger('album_id');
             $table->string('title');
             $table->string('slug');
             $table->text('lyrics');
             $table->timestamps();
 
             $table->foreign('band_id')->references('id')->on('bands')->onDelete('cascade');
+            $table->foreign('album_id')->references('id')->on('albums')->onDelete('cascade');
         });
     }
 
