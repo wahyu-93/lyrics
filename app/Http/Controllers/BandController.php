@@ -49,7 +49,8 @@ class BandController extends Controller
 
     public function show(Band $band)
     {
-        return view('band.show', compact('band'));
+        $albums = $band->albums()->latest()->get();
+        return view('band.show', compact('band', 'albums'));
     }
 
     public function edit(Band $band)

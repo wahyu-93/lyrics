@@ -1,4 +1,4 @@
-<div class="card mb-4 border-0 shadow">
+<div class="card mb-2 border-0 shadow">
     <img class="card-img-top" src="{{ asset('storage/'.$band->poster) }}" alt="Card image cap">
     
     <div class="card-body">

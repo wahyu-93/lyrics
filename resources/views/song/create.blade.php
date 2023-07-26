@@ -52,7 +52,7 @@
 
                     <div class="form-group mb-3">
                         <label for="lyrics">Lyric</label>
-                        <textarea name="lyrics" id="lyrics" rows="20" class="form-control @error('lyrics') is-invalid @enderror"></textarea>
+                        <textarea name="lyrics" id="lyrics" rows="15" class="form-control @error('lyrics') is-invalid @enderror"></textarea>
 
                         @error('lyrics')
                             <span class="text-danger">{{ $message }}</span>

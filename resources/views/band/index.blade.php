@@ -8,7 +8,6 @@
                 @include('band.partials.block')
             </div> 
         @endforeach
-
     </div>
 </div>
 @endsection
