@@ -52,4 +52,5 @@ Route::group(['prefix' => 'album'], function () {
 Route::group(['prefix' => 'song'], function () {
     Route::get('create', [SongController::class, 'create'])->name('song.create');
     Route::post('create', [SongController::class, 'store'])->name('song.store');
+    Route::get('/{band}/{song}', [SongController::class, 'show'])->name('song.show');
 });
