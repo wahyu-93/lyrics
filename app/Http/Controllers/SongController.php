@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Album;
 use App\Models\Band;
+use App\Models\Song;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -11,14 +12,12 @@ class SongController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('show');;
     }
 
     public function create()
     {
-        $bands = Band::get();
-        $albums = Album::get();
-        return view('song.create', compact('bands', 'albums'));
+        return view('song.create');
     }
 
     public function store(Request $request)
@@ -40,5 +39,19 @@ class SongController extends Controller
 
         session()->flash('success', 'Your Songs Has Been Save');
         return back();
+    }
+
+    public function show(Band $band, Song $song)
+    {
+        return view('song.show', compact('band', 'song'));
+    }
+
+    public function edit(Song $song)
+    {
+        return view('song.edit', compact('song'));
+    }
+
+    public function update(Request $request, Song $song)
+    {
     }
 }

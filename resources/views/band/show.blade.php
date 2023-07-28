@@ -29,7 +29,7 @@
                         <ul class="list-group">
                             @foreach($album->songs as $song)
                                <li class="list-group-item">
-                                    <a href="" class="text-decoration-none text-dark">{{ $song->title}}</a>
+                                    <a href="{{ route('song.show', [$band, $song]) }}" class="text-decoration-none text-dark">{{ $song->title}}</a>
                                 </li>
                             @endforeach
                         </ul>

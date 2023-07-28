@@ -10,13 +10,12 @@
             <div class="card card-body mb-2">
                 <h3 class="card-title">Create new Song</h3>
                 <hr>
-                <form action="{{ route('song.store') }}" method="POST">
+                <form action="{{ route('song.update', $song) }}" method="POST">
                     @csrf
-                    @include('song.partials.form', [
-                        'song' => 'App\Models\Song'
-                    ])                    
+                    @method('PUT')
+                    @include('song.partials.form')                    
 
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </form>
 
             </div>

@@ -19,13 +19,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');;
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -53,4 +51,6 @@ Route::group(['prefix' => 'song'], function () {
     Route::get('create', [SongController::class, 'create'])->name('song.create');
     Route::post('create', [SongController::class, 'store'])->name('song.store');
     Route::get('/{band}/{song}', [SongController::class, 'show'])->name('song.show');
+    Route::get('{song}', [SongController::class, 'edit'])->name('song.edit');
+    Route::put('{song}', [SongController::class, 'update'])->name('song.update');
 });
