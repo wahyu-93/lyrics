@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\bindWithSlug;
 use App\Traits\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Album extends Model
 {
-    use HasFactory, Sluggable;
+    use HasFactory, Sluggable, bindWithSlug;
 
     protected $guarded = ['id'];
 

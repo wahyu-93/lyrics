@@ -9,7 +9,7 @@
 
 <div class="form-group mb-3">
     <label for="poster" class="form-label">Band</label>
-    <select name="band" id="select-band" class="form-control @error('band') is-invalid @enderror">
+    <select name="band" id="select-band" class="form-control _band @error('band') is-invalid @enderror">
         <option disabled selected>Pilih Band</option>
         @foreach($bands as $band)
             <option {{ $band->id == $song->band_id ? 'selected' : ''}} value="{{ $band->id }}">{{ $band->name }}</option>
@@ -26,7 +26,7 @@
     <select name="album" id="select-album" class="form-control @error('album') is-invalid @enderror">
         <option disabled selected>Pilih Album</option>
         @foreach($albums as $album)
-            <option {{ $album->id == $song->album_id ? 'selected' : ''}} value="{{ $album->id }}">{{ $album->name }}</option>
+            {{-- <option {{ $album->id == $song->album_id ? 'selected' : ''}} value="{{ $album->id }}">{{ $album->name }}</option> --}}
         @endforeach
     </select>
 

@@ -49,4 +49,10 @@ class AlbumController extends Controller
         session()->flash('success', 'Album Has Been Update');
         return back();
     }
+
+    public function getAllAlbumById($id)
+    {
+        $band = Band::findOrFail($id);
+        return $band->albums;
+    }
 }

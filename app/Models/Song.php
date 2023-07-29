@@ -2,19 +2,15 @@
 
 namespace App\Models;
 
+use App\Traits\bindWithSlug;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Song extends Model
 {
-    use HasFactory;
+    use HasFactory, bindWithSlug;
 
     protected $guarded = ['id'];
-
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
 
     public function album()
     {

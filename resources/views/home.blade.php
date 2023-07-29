@@ -2,7 +2,22 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <form action="/search" method="GET">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Search</span>
+            <input type="text" class="form-control" placeholder="Search Any Band . . ." aria-label="Username" aria-describedby="basic-addon1" name="query">
+        </div>
+    </form>
+
+    <div class="mb-2 bg-white p-2">
+        @foreach(range('A', 'Z') as $alphabet)
+            <a href="">
+                {{ $alphabet }}
+            </a> 
+        @endforeach
+    </div>
+
+    <div class="row">    
         @foreach ($bands as $band)
             <div class="col-md-4">
                 <div class="card mb-4 border-0 shadow">
@@ -12,6 +27,12 @@
                         <h5 class="mb-0 card-title text-uppercase">
                             <a href="{{ route('band.show', $band) }}">{{ $band->name }}</a>
                         </h5>
+
+                        @foreach ($band->genres as $genre)
+                            <a href="{{ route('search.genre', $genre) }}">
+                                <span class="badge bg-secondary py-1 px-1">{{$genre->name}}</span>
+                            </a>
+                        @endforeach
                     </div>
                 </div>
             </div>

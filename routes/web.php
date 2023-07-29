@@ -4,6 +4,7 @@ use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\BandController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GenreController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SongController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,8 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('search', [SearchController::class, 'band']);
+Route::get('/search/genre/{genre}', [SearchController::class, 'genre'])->name('search.genre');
 
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -45,6 +48,7 @@ Route::group(['prefix' => 'album'], function () {
     Route::get('create', [AlbumController::class, 'create'])->name('album.create');
     Route::post('create', [AlbumController::class, 'store'])->name('album.store');
     Route::put('/{album}/update', [AlbumController::class, 'update'])->name('album.update');
+    Route::get('{id}', [AlbumController::class, 'getAllAlbumById']);
 });
 
 Route::group(['prefix' => 'song'], function () {

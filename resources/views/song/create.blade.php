@@ -25,3 +25,19 @@
     
 </div>
 @endsection
+
+@section('script')
+    <script>
+        $(document).ready(function(){
+            $('._band').on('change', function(){
+                $('#select-album').html('')
+                $.get('/album/' + this.value, function(data){
+                    $('#select-album').append('<option selected disabled>Pilih Album</option>')
+                    $.each(data, function(key, value){
+                        $('#select-album').append('<option value'+ value.id +'>'+value.name+'</option>')
+                    })
+                })     
+            })
+        })
+    </script>
+@endsection
