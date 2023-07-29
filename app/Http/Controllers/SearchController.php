@@ -20,4 +20,10 @@ class SearchController extends Controller
         $bands = $genre->bands;
         return view('home', compact('bands'));
     }
+
+    public function bandAlphabet($alphabet)
+    {
+        $bands = Band::where('name', 'LIKE', "{$alphabet}%")->latest()->get();
+        return view('home', compact('bands'));
+    }
 }

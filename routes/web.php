@@ -27,6 +27,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('search', [SearchController::class, 'band']);
 Route::get('/search/genre/{genre}', [SearchController::class, 'genre'])->name('search.genre');
+Route::get('/search/band/{id}', [SearchController::class, 'bandAlphabet'])->name('search.band.alphabet');
 
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 

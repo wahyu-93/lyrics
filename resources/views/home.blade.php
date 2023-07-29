@@ -11,14 +11,14 @@
 
     <div class="mb-2 bg-white p-2">
         @foreach(range('A', 'Z') as $alphabet)
-            <a href="">
+            <a href="{{ route('search.band.alphabet', $alphabet) }}" style="margin-right: 15px">
                 {{ $alphabet }}
             </a> 
         @endforeach
     </div>
 
     <div class="row">    
-        @foreach ($bands as $band)
+        @forelse ($bands as $band)
             <div class="col-md-4">
                 <div class="card mb-4 border-0 shadow">
                     <img class="card-img-top" src="{{ asset('storage/'.$band->poster) }}" alt="Card image cap">
@@ -36,7 +36,9 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+        @empty
+            <h3>There are no band</h3>
+        @endforelse
     </div>
 </div>
 @endsection
