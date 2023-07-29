@@ -12,7 +12,7 @@
     <select name="band" id="select-band" class="form-control @error('band') is-invalid @enderror">
         <option disabled selected>Pilih Band</option>
         @foreach($bands as $band)
-            <option value="{{ $band->id }}">{{ $band->name }}</option>
+            <option {{ $band->id == $song->band_id ? 'selected' : ''}} value="{{ $band->id }}">{{ $band->name }}</option>
         @endforeach
     </select>
 
@@ -26,7 +26,7 @@
     <select name="album" id="select-album" class="form-control @error('album') is-invalid @enderror">
         <option disabled selected>Pilih Album</option>
         @foreach($albums as $album)
-            <option value="{{ $album->id }}">{{ $album->name }}</option>
+            <option {{ $album->id == $song->album_id ? 'selected' : ''}} value="{{ $album->id }}">{{ $album->name }}</option>
         @endforeach
     </select>
 

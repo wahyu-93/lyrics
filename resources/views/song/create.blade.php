@@ -13,7 +13,7 @@
                 <form action="{{ route('song.store') }}" method="POST">
                     @csrf
                     @include('song.partials.form', [
-                        'song' => 'App\Models\Song'
+                        'song' => new App\Models\Song
                     ])                    
 
                     <button type="submit" class="btn btn-primary">Save</button>

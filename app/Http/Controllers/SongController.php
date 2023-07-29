@@ -53,5 +53,21 @@ class SongController extends Controller
 
     public function update(Request $request, Song $song)
     {
+        $this->validate($request, [
+            'title' => 'required',
+            'band' => 'required',
+            'album' => 'required',
+            'lyrics' => 'required'
+        ]);
+
+        $song->update([
+            'title' => $request->title,
+            'album_id'  => $request->album,
+            'lyrics' => $request->lyrics,
+            'slug'  => Str::slug($request->title) . '-' .  Str::random(6)
+        ]);
+
+        session()->flash('success', 'Your Songs Has Been Update');
+        return redirect()->route('dashboard');
     }
 }
