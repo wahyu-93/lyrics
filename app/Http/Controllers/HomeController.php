@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $bands = Band::latest()->get();
+        $bands = Band::with('genres')->latest()->get();
         return view('home', compact('bands'));
     }
 }

@@ -49,7 +49,7 @@ class BandController extends Controller
 
     public function show(Band $band)
     {
-        $albums = $band->albums()->latest()->get();
+        $albums = $band->albums()->with('songs')->latest()->get();
         return view('band.show', compact('band', 'albums'));
     }
 
