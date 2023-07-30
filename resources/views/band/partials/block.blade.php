@@ -1,7 +1,7 @@
-<div class="card mb-2 border-0 shadow">
-    <img class="card-img-top" src="{{ asset('storage/'.$poster) }}" alt="Card image cap">
+<div class="bg-white rounded-b-lg shadow  mt-3">
+    <img class="rounded-t-lg w-full" src="{{ asset('storage/'.$poster) }}" alt="Card image cap">
     
-    <div class="card-body">
+    <div class="mb-2 p-3">
         {{ $body }}
     </div>
 </div>

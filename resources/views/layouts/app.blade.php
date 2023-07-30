@@ -15,10 +15,14 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
+
+    {{-- tailwind --}}
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@0.7.4/dist/utilities.min.css" rel="stylesheet">
+
     {{-- jquery --}}
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     
@@ -30,7 +34,7 @@
     <div id="app">
         @include('layouts.partials.navigation')
 
-        <main class="py-4">
+        <main class="py-0">
             <div class="container">
                 @include('alert')
             </div>

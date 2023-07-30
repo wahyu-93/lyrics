@@ -22,20 +22,18 @@
 
             {{-- album dan song --}}
             @foreach($albums as $album)
-                <div class="card border-0 shadow mb-2">
-                    <div class="card-body">
-                        <div>
-                            {{ $album->name }}
-                        </div>
-
-                        <ul class="list-group">
-                            @foreach($album->songs as $song)
-                               <li class="list-group-item">
-                                    <a href="{{ route('song.show', [$band, $song]) }}" class="text-decoration-none text-dark">{{ $song->title}}</a>
-                                </li>
-                            @endforeach
-                        </ul>
+                <div class="bg-white shadow py-3 px-3 mb-2 rounded-lg">
+                    <div class="mb-2">
+                        {{ $album->name }}
                     </div>
+
+                    <ul class="list-group">
+                        @foreach($album->songs as $song)
+                        <li class="list-group-item">
+                                <a href="{{ route('song.show', [$band, $song]) }}" class="text-decoration-none text-dark">{{ $song->title}}</a>
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
             @endforeach
         </div> 

@@ -1,21 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <form action="/search" method="GET">
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Search</span>
-            <input type="text" class="form-control" placeholder="Search Any Band . . ." aria-label="Username" aria-describedby="basic-addon1" name="query">
-        </div>
-    </form>
-
-    <div class="mb-2 bg-white p-2">
-        @foreach(range('A', 'Z') as $alphabet)
-            <a href="{{ route('search.band.alphabet', $alphabet) }}" style="margin-right: 15px">
-                {{ $alphabet }}
-            </a> 
-        @endforeach
+<div class="bg-blue-dark py-20 mb-3">
+    <div class="container">
+        <div class="text-white text-5xl">SING WITH ME !</div>
+        
+        <form action="/search" method="GET">
+            <input type="text" class="w-full rounded-full py-2 px-3 border-0 outline-none" placeholder="Search Any Band . . ." aria-label="Username" aria-describedby="basic-addon1" name="query">
+        </form>
     </div>
+</div>
+
+<div class="container">
+
 
     <div class="row">    
         @forelse ($bands as $band)
@@ -37,7 +34,7 @@
                 </div>
             </div>
         @empty
-            <h3>There are no band</h3>
+            <div class="mt-3 text-2xl">There are no band . . . </div>
         @endforelse
     </div>
 </div>

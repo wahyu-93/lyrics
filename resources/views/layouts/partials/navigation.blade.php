@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+<nav class="navbar navbar-expand-md navbar-dark bg-blue shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'Laravel') }}
@@ -10,24 +10,8 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            
-
-            <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ms-auto">
-                <!-- Authentication Links -->
-                @guest
-                    @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                    @endif
-
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                    @endif
-                @else
+            @if(Auth::check())
+                <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('dashboard') }}">Go To Dashboard</a>
                     </li>
@@ -40,8 +24,8 @@
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
 
@@ -49,9 +33,21 @@
                                 @csrf
                             </form>
                         </div>
-                    </li>
-                @endguest
+                    </li>   
+                </ul>
+            @endif
+
+            <!-- Right Side Of Navbar -->
+            <ul class="navbar-nav ms-auto">
+                @foreach(range('A', 'Z') as $alphabet)
+                <li class="nav-item">
+                    <a href="{{ route('search.band.alphabet', $alphabet) }}" class="nav-link">
+                        {{ $alphabet }}
+                    </a> 
+                </li>
+            @endforeach
             </ul>
+                
         </div>
     </div>
 </nav>

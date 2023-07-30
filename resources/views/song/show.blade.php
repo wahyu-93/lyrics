@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-center">
         <div class="col-md-10">
             @component('band.partials.block')
                 @slot('poster', $band->poster)
