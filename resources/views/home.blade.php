@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="bg-blue-dark py-20 mb-3">
+<div class="bg-blue-dark py-20 mb-3 -mt-8">
     <div class="container">
         <div class="text-white text-5xl">SING WITH ME !</div>
         
@@ -12,8 +12,6 @@
 </div>
 
 <div class="container">
-
-
     <div class="row">    
         @forelse ($bands as $band)
             <div class="col-md-4">

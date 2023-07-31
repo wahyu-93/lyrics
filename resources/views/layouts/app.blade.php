@@ -34,7 +34,7 @@
     <div id="app">
         @include('layouts.partials.navigation')
 
-        <main class="py-0">
+        <main class="py-4">
             <div class="container">
                 @include('alert')
             </div>

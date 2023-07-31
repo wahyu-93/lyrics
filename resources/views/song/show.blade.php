@@ -18,6 +18,7 @@
                         
                         @if(Auth::check())
                             <a href="{{ route('song.edit', $song) }}" class="btn btn-light btn-sm">Edit</a>
+                            @include('song.video')
                         @endif
                         
                         <hr>
