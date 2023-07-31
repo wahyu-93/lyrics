@@ -36,6 +36,11 @@
 </div>
 
 <div class="form-group mb-3">
+    <label for="embed">Embed Youtube Lyrics</label>
+    <input type="text" name="embed" id="embed" class="form-control" value="{{ $song->embed ?? old('embed') }}" placeholder="www.youtube.com/embed">
+</div>
+
+<div class="form-group mb-3">
     <label for="lyrics">Lyric</label>
     <textarea name="lyrics" id="lyrics" rows="15" class="form-control @error('lyrics') is-invalid @enderror">{{ $song->lyrics ?? old('lyrics') }}</textarea>
 

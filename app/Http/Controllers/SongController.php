@@ -34,7 +34,8 @@ class SongController extends Controller
             'title' => $request->title,
             'album_id'  => $request->album,
             'lyrics' => $request->lyrics,
-            'slug'  => Str::slug($request->title) . '-' .  Str::random(6)
+            'slug'  => Str::slug($request->title) . '-' .  Str::random(6),
+            'embed' => $request->embed
         ]);
 
         session()->flash('success', 'Your Songs Has Been Save');
@@ -53,6 +54,7 @@ class SongController extends Controller
 
     public function update(Request $request, Song $song)
     {
+        dd($request);
         $this->validate($request, [
             'title' => 'required',
             'band' => 'required',
@@ -64,7 +66,8 @@ class SongController extends Controller
             'title' => $request->title,
             'album_id'  => $request->album,
             'lyrics' => $request->lyrics,
-            'slug'  => Str::slug($request->title) . '-' .  Str::random(6)
+            'slug'  => Str::slug($request->title) . '-' .  Str::random(6),
+            'embed' => $request->embed
         ]);
 
         session()->flash('success', 'Your Songs Has Been Update');
