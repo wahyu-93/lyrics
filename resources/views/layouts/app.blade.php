@@ -39,7 +39,16 @@
                 @include('alert')
             </div>
             @yield('content')
+
+            <footer>
+                <div class="bg-blue py-2 mt-5">
+                   <div class="text-sm text-center text-white">
+                    &copy; Lyrics - 2023
+                   </div>
+                </div>
+            </footer>
         </main>
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> 
     <script type="text/javascript">
