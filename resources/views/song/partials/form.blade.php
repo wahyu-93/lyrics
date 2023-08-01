@@ -28,6 +28,9 @@
         @foreach($albums as $album)
             {{-- <option {{ $album->id == $song->album_id ? 'selected' : ''}} value="{{ $album->id }}">{{ $album->name }}</option> --}}
         @endforeach
+
+        <input type="hidden" name="album_id" id="album_id" value="{{ $song->album_id ?? ''}}">
+        <input type="hidden" name="album_name" id="album_name" value="{{ $song->album->name ?? '' }}">
     </select>
 
     @error('album')

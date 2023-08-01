@@ -54,7 +54,6 @@ class SongController extends Controller
 
     public function update(Request $request, Song $song)
     {
-        dd($request);
         $this->validate($request, [
             'title' => 'required',
             'band' => 'required',

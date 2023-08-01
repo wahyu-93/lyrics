@@ -28,10 +28,26 @@
 @section('script')
     <script>
         $(document).ready(function(){
+            const album_id = $('#album_id').val();
+            const album_name = $('#album_name').val();
+            const band_id = $('._band').val();
+            let ket = ''
+
+            $.get('/album/' + band_id, function(data){
+                $.each(data, function(key, value){
+                    if(value.id != album_id){
+                        ket = ''
+                    }
+                    else {
+                        ket = 'selected'
+                    }
+                    $('#select-album').append('<option '+ket+' value='+ value.id +' >'+value.name+'</option>')
+                })
+            })     
+        
             $('._band').on('change', function(){
                 $('#select-album').html('')
                 $.get('/album/' + this.value, function(data){
-                    $('#select-album').append('<option selected disabled>Pilih Album</option>')
                     $.each(data, function(key, value){
                         $('#select-album').append('<option value='+ value.id +'>'+value.name+'</option>')
                     })
