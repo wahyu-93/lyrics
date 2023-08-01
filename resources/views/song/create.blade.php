@@ -34,7 +34,7 @@
                 $.get('/album/' + this.value, function(data){
                     $('#select-album').append('<option selected disabled>Pilih Album</option>')
                     $.each(data, function(key, value){
-                        $('#select-album').append('<option value'+ value.id +'>'+value.name+'</option>')
+                        $('#select-album').append('<option value='+ value.id +'>'+value.name+'</option>')
                     })
                 })     
             })
